@@ -22,7 +22,7 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: radial-gradient(circle at top center, #232F5E, var(--bg-dark) 80%);
+            background: #232F5E 80%;
             color: var(--text-white);
             min-height: 100vh;
             position: relative;
@@ -268,7 +268,22 @@
             .about-text { font-size: 0.95rem; line-height: 1.75; }
             .logo-img { max-width: 220px; }
         }
+        
     </style>
+    <style>
+.card iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  border: none;
+}
+.bigg {
+	height: 40vh;
+	width:100%;
+	padding: 3px;
+}
+</style>
+
 </head>
 <body>
 
@@ -325,7 +340,7 @@
 
 <section class="about-text">
     <img src="https://i.ibb.co/995fw143/dcf8870408b4.png" alt="" class="logo-img">
-    <div class="card">
+    <div class="card bigg">
 <iframe 
   src="https://www.youtube.com/embed/EGHjsRV_I7s"
   title="YouTube video player" frameborder="0"
