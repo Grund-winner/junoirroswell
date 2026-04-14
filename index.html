@@ -2,10 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roswell Strat Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Roswell Strat Group | Stratégie & Pronostics</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
     <style>
+        /* ----- RESET & GLOBAL ----- */
         :root {
             --bg-dark: #232F5E;
             --card-bg: #0b162b;
@@ -49,55 +50,73 @@
             z-index: -1;
         }
 
+        /* ----- HEADER & LOGO (espace réduit entre logo et photo fondateur) ----- */
         .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 0;        /* suppression marge basse */
             max-width: 700px;
         }
 
         .logo-img {
             max-width: 260px;
             width: 100%;
-            margin-bottom: 25px;
+            margin-bottom: 8px;      /* réduction drastique de l'espace sous le logo */
         }
 
-        .main-title {
-            font-size: 2.8rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        .highlight-gold {
-            color: var(--accent-gold);
-            display: block;
-        }
-
-        .intro-section {
-            max-width: 800px;
+        /* ----- SECTION FONDATEUR (photo + texte) ----- */
+        .owner-section {
             text-align: center;
-            margin-bottom: 60px;
-            color: var(--text-gray);
-            font-size: 1.05rem;
-            line-height: 1.7;
+            margin-bottom: 40px;      /* garde une mousse cohérente après, mais espace haut supprimé */
+            margin-top: 0;            /* aucune marge haute supplémentaire */
         }
 
+        /* Suppression des marges internes indésirables */
+        .owner-section p {
+            margin: 0 0 4px 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .owner-section img {
+            max-width: 280px;
+            width: 100%;
+            opacity: 0.95;
+            filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+            margin-bottom: 6px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .owner-name {
+            margin-top: 5px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+        }
+
+        /* ----- CARTES (FRAMES REDUITES : TAILLE GLOBALE PLUS COMPACTE, TEXTES IDENTIQUES) ----- */
         .choice-container {
             display: flex;
-            gap: 30px;
-            max-width: 900px;
+            gap: 24px;
+            max-width: 960px;
             width: 100%;
             flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
         }
 
         .card {
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
             background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.3) 100%);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 40px 30px;
+            border-radius: 20px;
+            padding: 22px 20px;      /* réduction significative des padding (anciennement 40px 30px) */
             text-align: center;
             transition: transform 0.3s ease, border-color 0.3s ease;
             display: flex;
@@ -113,100 +132,55 @@
 
         .card-icon {
             font-size: 3rem;
-            margin-bottom: 20px;
+            margin-bottom: 12px;     /* espace réduit mais taille icône inchangée */
         }
 
         .card-title {
-            font-size: 1.8rem;
+            font-size: 1.8rem;       /* taille texte inchangée */
             font-weight: 800;
             text-transform: uppercase;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 12px;     /* léger ajustement d'espace sans toucher au texte */
         }
 
         .card-desc {
-            font-size: 1rem;
+            font-size: 1rem;          /* taille identique */
             color: var(--text-gray);
-            line-height: 1.6;
-            margin-bottom: 30px;
+            line-height: 1.5;
+            margin-bottom: 20px;      /* reduction de l'espace avant bouton */
         }
 
+        /* BOUTONS (redimensionnés mais même police / poids) */
         .btn {
             display: block;
             width: 100%;
-            padding: 18px;
-            border-radius: 8px;
+            padding: 12px 12px;       /* padding plus compact = cadre bouton moins haut, texte inchangé */
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 800;
             text-transform: uppercase;
-            font-size: 1rem;
+            font-size: 1rem;          /* strictement même taille que l'original */
             transition: 0.3s;
             letter-spacing: 1px;
+            text-align: center;
         }
 
         .btn-gold {
             background: var(--accent-gold);
             color: #000;
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
         }
 
         .btn-gold:hover {
             background: #ffdb4d;
-            box-shadow: 0 4px 25px rgba(255, 204, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(255, 204, 0, 0.5);
             transform: scale(1.02);
         }
 
-        .cta-choose {
-            margin-bottom: 40px;
-            text-align: center;
-            width: 100%;
-            max-width: 420px;
-        }
-
-        .cta-choose a {
-            display: block;
-            padding: 18px 22px;
-            background: transparent;
-            border: 2px solid var(--accent-gold);
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 10px;
-            transition: 0.3s ease;
-        }
-
-        .cta-choose a:hover {
-            background: var(--accent-gold);
-            color: #000;
-            box-shadow: 0 0 25px rgba(255,204,0,0.4);
-            transform: translateY(-2px);
-        }
-
-        .owner-section {
-            margin-bottom: 70px;
-            text-align: center;
-        }
-
-        .owner-section img {
-            max-width: 280px;
-            width: 100%;
-            opacity: 0.95;
-            filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
-        }
-
-        .owner-name {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
+        /* sections textuelles et about (inchangées) */
         .about-text {
             max-width: 900px;
-            margin-top: 70px;
+            margin-top: 60px;
             margin-bottom: 70px;
             text-align: center;
             color: var(--text-gray);
@@ -228,7 +202,7 @@
 
         .filter-section {
             max-width: 700px;
-            margin-top: 50px;
+            margin-top: 30px;
             text-align: center;
             color: var(--text-gray);
             font-size: 0.95rem;
@@ -240,64 +214,89 @@
         }
 
         .footer {
-            margin-top: 60px;
+            margin-top: 50px;
             font-size: 0.8rem;
-            color: #555;
+            color: #aaa;
             text-align: center;
         }
 
+        /* iframe / vidéo youtube (aucun changement structurel) */
+        .card iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            border: none;
+        }
+        .bigg {
+            height: 40vh;
+            width: 100%;
+            padding: 3px;
+        }
+
+        /* RESPONSIVE : ajustements fluides, cartes toujours compactes */
         @media (max-width: 768px) {
             .owner-section {
-                margin-bottom: 70px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: 16px;
-                padding: 40px 30px;
-                text-align: center;
-                background: linear-gradient(180deg, rgba(0, 255, 255, 0.378) 0%, rgba(0,0,0,0.3) 100%);
+                margin-bottom: 50px;
+                background: linear-gradient(180deg, rgba(0, 255, 255, 0.18) 0%, rgba(0,0,0,0.3) 100%);
+                border-radius: 24px;
+                padding: 20px 15px;
             }
-
             .owner-section img {
-                max-width: 280px;
-                width: 100%;
-                opacity: 0.95;
-                filter: drop-shadow(0 0 25px cyan);
+                max-width: 240px;
+                filter: drop-shadow(0 0 20px cyan);
             }
-
             .main-title { font-size: 2rem; }
-            .choice-container { flex-direction: column; }
-            .about-text { font-size: 0.95rem; line-height: 1.75; }
-            .logo-img { max-width: 220px; }
+            .choice-container { 
+                flex-direction: column;
+                gap: 20px;
+            }
+            .card {
+                padding: 20px 18px;   /* encore légèrement ajusté sur mobile mais texte identique */
+            }
+            .card-title {
+                font-size: 1.7rem;
+            }
+            .about-text { 
+                font-size: 0.95rem; 
+                line-height: 1.75; 
+            }
+            .logo-img { 
+                max-width: 220px; 
+                margin-bottom: 6px;
+            }
+            .btn {
+                padding: 12px 8px;
+            }
         }
-        
-    </style>
-    <style>
-.card iframe {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  border: none;
-}
-.bigg {
-	height: 40vh;
-	width:100%;
-	padding: 3px;
-}
-</style>
 
+        /* suppression de tout espace parasite entre header logo et photo fondateur */
+        .header, .owner-section {
+            transition: all 0.1s ease;
+        }
+        /* garantie d'aucune marge supplémentaire dans le flux */
+        body > .header + .owner-section {
+            margin-top: 0;
+        }
+        .owner-section img {
+            margin-top: 2px;
+        }
+    </style>
 </head>
 <body>
 
 <header class="header">
     <img src="https://i.ibb.co/PGTQLHZb/35f8872c2a05.png" alt="Logo Roswell Strat Group" class="logo-img">
 </header>
+
+<!-- Section Fondateur : photo et nom, espace total supprimé entre logo et cette section -->
 <div class="owner-section">
     <p>Fondateur</p>
     <img src="https://i.ibb.co/TDmV4wJq/8d73cad00b8f.png" alt="Junior Roswell">
     <div class="owner-name">Junior 2 Roswell</div>
 </div>
 
+<!-- Cartes d'actions : FRAMES REDUITES (padding allégé, hauteur moindre, textes strictement identiques) -->
 <main class="choice-container" id="choix">
-
     <section class="card">
         <div class="card-icon">⚽</div>
         <h2 class="card-title">Pronostics</h2>
@@ -310,11 +309,11 @@
         </a>
     </section>
 
-	<section class="card">
+    <section class="card">
         <div class="card-icon">✅</div>
         <h2 class="card-title">Pronostics whatsapp</h2>
         <p class="card-desc">
-             Pronostics sportifs fiables
+             Pronostics sportifs fiables<br>
               Discipline et résultats sur le long terme
         </p>
         <a href="https://whatsapp.com/channel/0029Vb0rB1rG8l5L4JzPZc11" class="btn btn-gold">
@@ -324,7 +323,7 @@
 
     <section class="card">
         <div class="card-icon">🧠</div>
-        <h2 class="card-title">Stratégie & Discipline</h2>
+        <h2 class="card-title">Stratégie &amp; Discipline</h2>
         <p class="card-desc">
             Pour comprendre la logique, structurer sa bankroll
             et penser sur le long terme.
@@ -333,34 +332,26 @@
             Accéder à Ma formation
         </a>
     </section>
-
 </main>
 
+<!-- section about text + vidéo youtube (inchangé) -->
 <section class="about-text">
-    <img src="https://i.ibb.co/995fw143/dcf8870408b4.png" alt="" class="logo-img">
-    <div class="card bigg">
-<iframe 
-  src="https://www.youtube.com/embed/EGHjsRV_I7s"
-  title="YouTube video player" frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-
+    <img src="https://i.ibb.co/995fw143/dcf8870408b4.png" alt="Roswell Strat symbole" class="logo-img" style="max-width: 200px; margin-bottom: 20px;">
+    <div class="card bigg" style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,204,0,0.3); padding: 6px;">
+        <iframe src="https://www.youtube.com/embed/EGHjsRV_I7s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+        </iframe>
     </div>
 
     <p>
         Roswell Strat est une entreprise spécialisée dans l’analyse prédictive et la stratégie.
     </p>
-
     <p>
         Notre mission : transformer les données, les tendances et l’intuition en opportunités réelles et maîtrisées.
     </p>
-
     <p>
         Grâce à une approche basée sur la rigueur, la technologie et une compréhension approfondie du jeu,
         nous aidons notre communauté à anticiper, planifier et progresser.
     </p>
-
     <p>
         Plus qu’une simple plateforme de pronostics, Roswell Strat est un véritable centre
         d’intelligence stratégique où chaque pari devient une décision calculée.
